@@ -1,5 +1,14 @@
 import streamlit as st
-import cv2
+
+# Fallback untuk cv2
+try:
+    import cv2
+except ImportError:
+    import subprocess
+    import sys
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "opencv-python-headless"])
+    import cv2
+
 import numpy as np
 from PIL import Image
 import tempfile
@@ -143,4 +152,5 @@ st.markdown("---")
 st.markdown(
     "<center>© 2026 | Deteksi Penyakit Daun Kedelai | Universitas Islam Indonesia</center>",
     unsafe_allow_html=True
+
 )
