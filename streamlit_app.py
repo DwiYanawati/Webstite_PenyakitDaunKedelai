@@ -1,17 +1,7 @@
 import streamlit as st
-
-# Fallback untuk cv2
-try:
-    import cv2
-except ImportError:
-    import subprocess
-    import sys
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "opencv-python-headless"])
-    import cv2
-
+import cv2
 import numpy as np
 from PIL import Image
-import tempfile
 import os
 from ultralytics import YOLO
 import time
@@ -154,3 +144,4 @@ st.markdown(
     unsafe_allow_html=True
 
 )
+
